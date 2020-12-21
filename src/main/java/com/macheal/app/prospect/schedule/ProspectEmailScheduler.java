@@ -30,7 +30,7 @@ public class ProspectEmailScheduler {
     @Autowired
     ProspectRepository prospectRepository;
     //for One day
-    @Scheduled(cron  =" 0 0 0 ? * * *")
+    @Scheduled(cron  = "0 15 10 * * ?")
     public void sendProspectEmails() {
         log.info("Starting to search for prospect to send email");
         prospectRepository.findAll().forEach(prospect -> {
