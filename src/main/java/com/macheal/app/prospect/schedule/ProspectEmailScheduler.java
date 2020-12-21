@@ -36,7 +36,7 @@ public class ProspectEmailScheduler {
         prospectRepository.findAll().forEach(prospect -> {
 
             if (Objects.nonNull(prospect.getLastContactOn())  && prospect.isEmailReminder() && nonNull(prospect.getLastContactOn()) &&
-                    prospect.getLastContactOn().plusDays(0).
+                    prospect.getLastContactOn().plusDays(prospect.getFrequencyOfContact()).
                             compareTo(LocalDate.now()) == 0) {
                 final EmailDataRequest r = EmailDataRequest.builder()
                         .from("noreply@gmail.com")
