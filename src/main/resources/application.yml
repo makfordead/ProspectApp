@@ -62,4 +62,4 @@ jwt:
   secret: secret
 
 notification-redirect-url:
-  user-confirm-register-redirect: http://localhost:3000/verify-email/
+  user-confirm-register-redirect: https://prospect-app-frontend.herokuapp.com/verify-email/
