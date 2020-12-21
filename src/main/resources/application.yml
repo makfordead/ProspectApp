@@ -1,0 +1,60 @@
+spring:
+  application:
+    name: paklab
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/prospect?autoReconnect=true&useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: root
+    testWhileIdle: true
+    validationQuery: SELECT 1
+    hikari:
+      type: com.zaxxer.hikari.HikariDataSource
+      idleTimeout: 60000
+      minimumIdle: 2
+      maximumPoolSize: 5
+      connectionTimeout: 30000
+      poolName: commonservice_pool
+      connectionTestQuery: SELECT 1
+  jpa:
+    hibernate:
+      ddl-auto: create
+    generate-ddl: true
+    open-in-view: false
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 2KB
+      max-file-size: 10MB
+      max-request-size: 10MB
+  mail:
+    default-encoding: UTF-8
+    host: smtp.gmail.com
+    username: usernameofemail
+    password: passwordofemail
+    port: 587
+    properties:
+      mail:
+        smtp:
+          auth: true
+          connectiontimeout: 5000
+          timeout: 5000
+          writetimeout: 5000
+          starttls:
+            enable: true
+    protocol: smtp
+    test-connection: false
+    mail-from: noreply@gmail.com
+
+server:
+  port: 8080
+
+jwt:
+  secret: secret
+
+notification-redirect-url:
+  user-confirm-register-redirect: http://localhost:3000/verify-email/
