@@ -78,7 +78,7 @@ public class UserServiceImpl implements UserService {
 
         final EmailDataRequest r = EmailDataRequest.builder()
                 .from("noreply@gmail.com")
-                .to(Collections.singletonList("kodwanikapil@gmail.com"))
+                .to(Collections.singletonList(user.getUsername()))
                 .subject("Email Verification")
                 .content(Map.of("user", user,
                         "verify", emailVerify,
