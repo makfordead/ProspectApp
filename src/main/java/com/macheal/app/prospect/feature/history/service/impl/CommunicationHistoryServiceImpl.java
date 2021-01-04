@@ -63,7 +63,8 @@ public class CommunicationHistoryServiceImpl implements CommunicationHistoryServ
 
         communicationHistory = communicationHistoryRepository.save(communicationHistory);
 
-        return new ResponseEntity<>(modelMapper.map(communicationHistory, CommunicationHistoryResponse.class),
+        return new ResponseEntity<>(modelMapper.map(communicationHistory
+                , CommunicationHistoryResponse.class),
                 HttpStatus.OK);
 
     }
